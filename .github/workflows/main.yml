@@ -10,14 +10,19 @@ on:
   
   workflow_dispatch:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
   
-    steps:
+    steps:    
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - name: Login to Yandex Cloud Container Registry
+        id: login-cr
+        uses: yc-actions/yc-cr-login@v1
+        with:
+          yc-sa-json-credentials: ${{ secrets.YC_CREDENTIALS }}        
         
       - name: List files
         run: ls -la
