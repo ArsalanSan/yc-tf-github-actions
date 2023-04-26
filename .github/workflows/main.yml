@@ -4,7 +4,10 @@ name: Push To Yandex Cloud
 on:
   push:
     branches: [ main ]
-
+  
+  pull_request:
+    branches: main
+  
   workflow_dispatch:
 
 
