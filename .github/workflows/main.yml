@@ -25,7 +25,7 @@ jobs:
           yc-sa-json-credentials: ${{ secrets.YC_CREDENTIALS }}
       
       - name: Output step
-        run: echo "${{ steps.issue-iam-token.outputs.stdout }}"
+        run: echo "${{ steps.issue-iam-token.outputs.value }}"
         
 #       - name: Login to Yandex Cloud Container Registry
 #         uses: yc-actions/yc-cr-login@v1
