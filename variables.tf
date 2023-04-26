@@ -1,14 +1,14 @@
 #------------------------------
 ##### variables for cloud #####
 #------------------------------ 
-/*
+
 variable "sa_key_file" {
   type        = string
   default     = "key.json"
   description = "Service account key file cloud"
 }
 
-
+/*
 variable "cloud_id" {
   type        = string
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/cloud/get-id"

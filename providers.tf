@@ -10,7 +10,7 @@ terraform {
 
 provider "yandex" {
   #token     = var.token
-#  service_account_key_file = var.sa_key_file
+  service_account_key_file = var.sa_key_file
   cloud_id  = "b1gqp5blt5vgc3tneeo8" 
   folder_id = "b1gvel5rak0sd02laom7"
 #  zone      = var.default_zone
