@@ -23,6 +23,12 @@ jobs:
       
       - name: Run TFLint    
         run: tflint -f compact
+      
+      - name: Run Checkov 
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          framework: terraform
 
       - name: Terraform Init
         id: init

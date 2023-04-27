@@ -25,7 +25,7 @@ variable "folder_id" {
 
 variable "name" {
   type    = string
-  default = "vpc"
+  default = "develop"
 }
 
 variable "subnets" {

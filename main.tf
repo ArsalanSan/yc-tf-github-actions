@@ -3,8 +3,8 @@
 ####----------------------------
 
 module "vpc" {
-  source = "git::https://github.com/ArsalanSan/networks.git?ref=main"
-  name = "develop"
+  source  = "git::https://github.com/ArsalanSan/networks.git?ref=main"
+  name    = var.name
   subnets = var.subnets 
 }
 
