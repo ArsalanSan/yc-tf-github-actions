@@ -18,8 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Ckeck TFLINT
+      - name: Setup TFLINT
         uses: terraform-linters/setup-tflint@v3
+      
+      - name: Run TFLint    
         run: tflint -f compact
 
       - name: Terraform Init
