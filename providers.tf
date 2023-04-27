@@ -16,7 +16,7 @@ terraform {
     skip_credentials_validation = true
 
     dynamodb_endpoint = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gqp5blt5vgc3tneeo8/etnujspb6lpm20rj1slu"
-    dynamodb_table    = "tfstate-lock-hwtf"
+    dynamodb_table    = "table-bucket-hwtf"
   }
 
   required_version = ">=1.3.0"
