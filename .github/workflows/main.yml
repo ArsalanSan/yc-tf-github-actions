@@ -20,7 +20,7 @@ jobs:
       
       - name: Ckeck TFLINT
         uses: terraform-linters/setup-tflint@v3
-        uses: run: tflint -f compact
+        run: tflint -f compact
 
       - name: Terraform Init
         id: init
