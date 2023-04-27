@@ -18,25 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-#       - name: IAM Token
-#         id: issue-iam-token
-#         uses: yc-actions/yc-iam-token@v1
-#         with:
-#           yc-sa-json-credentials: ${{ secrets.YC_CREDENTIALS }}
-      
-#       - name: Output step
-#         run: echo "${{ steps.issue-iam-token.outputs.value }}"
-        
-#       - name: Login to Yandex Cloud Container Registry
-#         uses: yc-actions/yc-cr-login@v1
-#         with:
-#           yc-sa-json-credentials: ${{ secrets.YC_CREDENTIALS }} 
-        
-#       - name: Setup Terraform
-#         uses: hashicorp/setup-terraform@v1
-#         with:
-#           terraform_version: 1.3.9
-          
+      - name: Ckeck TFLINT
+        uses: terraform-linters/setup-tflint@v3
+        uses: run: tflint -f compact
+
       - name: Terraform Init
         id: init
         run: terraform init -backend-config="access_key=${{ secrets.S3_BUCKET_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.S3_BUCKET_SECTER_KEY }}" 
@@ -45,7 +30,4 @@ jobs:
         id: plan
         run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -out=outplan
 
-      - name: Output step
-        run: cat outplan      
-        
         
