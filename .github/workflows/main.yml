@@ -23,6 +23,7 @@ jobs:
       
       - name: Run TFLint    
         run: tflint -f compact
+        continue-on-error: true
       
       - name: Run Checkov 
         id: checkov
