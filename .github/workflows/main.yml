@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  terraform:
     runs-on: ubuntu-latest
   
     steps:    
@@ -33,10 +33,12 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="access_key=${{ secrets.S3_BUCKET_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.S3_BUCKET_SECTER_KEY }}" 
+        run: terraform init -backend-config="access_key=${{ secrets.S3_BUCKET_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.S3_BUCKET_SECTER_KEY }}"
 
       - name: Terraform Plan
         id: plan
         run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -out=outplan
+      
+      - name: Terraform apply
+        run: terraform apply "outplan" -auto-approve
 
-        
