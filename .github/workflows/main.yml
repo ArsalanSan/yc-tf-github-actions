@@ -40,5 +40,5 @@ jobs:
         run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -out=outplan
       
       - name: Terraform apply
-        run: terraform apply "outplan" -auto-approve
+        run: terraform apply -state="outplan" -auto-approve
 
