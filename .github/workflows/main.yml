@@ -33,13 +33,11 @@ jobs:
 
       - name: Terraform Init
         id: init
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
         run: terraform init -backend-config="access_key=${{ secrets.S3_BUCKET_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.S3_BUCKET_SECTER_KEY }}"
 
       - name: Terraform Plan
         id: plan
-        run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -out=outplan
+        run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -var 'ssh_key=${{ secrets.SSH_KEY }}' -out=outplan
       
       - name: Terraform apply
         run: terraform apply -auto-approve "outplan"

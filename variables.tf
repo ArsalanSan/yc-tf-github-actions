@@ -19,6 +19,11 @@ variable "folder_id" {
   description = "https://cloud.yandex.ru/docs/resource-manager/operations/folder/get-id"
 }
 */
+
+variable "ssh_key" {
+  type    = string
+}
+
 #--------------------------------
 ##### variables for module #####
 #-------------------------------- 

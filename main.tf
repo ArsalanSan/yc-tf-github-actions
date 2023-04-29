@@ -19,7 +19,7 @@ data "template_file" "file_init" {
   template = file("./file-init.yml")
  
   vars = {
-    ssh_public_key = ${{ env.SSH_KEY }}
+    ssh_public_key = var.ssh_key
   }
 }
 
