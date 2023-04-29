@@ -36,6 +36,8 @@ jobs:
         run: terraform init -backend-config="access_key=${{ secrets.S3_BUCKET_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.S3_BUCKET_SECTER_KEY }}"
 
       - name: Terraform Plan
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
         id: plan
         run: terraform plan -var 'sa_key_file=${{ secrets.YC_CREDENTIALS }}' -out=outplan
       
