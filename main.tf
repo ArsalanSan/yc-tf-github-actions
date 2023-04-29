@@ -31,8 +31,6 @@ resource "yandex_compute_instance" "count-vm" {
   platform_id = "standard-v1"
   zone        = each.key
 
-  count = length( module.vpc.subnets_id )
-
   resources {
     cores         = 2
     memory        = 1
