@@ -1,0 +1,9 @@
+users:
+  - name: admin
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    package_update: true
+    package_upgrade: false
+    ssh-authorized-keys:
+      - ${ssh_public_key}
