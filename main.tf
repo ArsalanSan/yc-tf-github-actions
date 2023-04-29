@@ -24,9 +24,12 @@ data "template_file" "file_init" {
 }
 
 resource "yandex_compute_instance" "count-vm" {
+  
+  for_each = module.vpc.map_zone_id
 
-  name        = "dev-vm-${ count.index }"
+  name        = "dev-vm-${ each.key }"
   platform_id = "standard-v1"
+  zone        = each.key
 
   count = length( module.vpc.subnets_id )
 
@@ -45,7 +48,7 @@ resource "yandex_compute_instance" "count-vm" {
   scheduling_policy { preemptible = true }
 
   network_interface {
-    subnet_id = module.vpc.subnets_id[ count.index ] 
+    subnet_id = each.value 
     nat       = true
   }
 
