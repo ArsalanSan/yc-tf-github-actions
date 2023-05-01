@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "count-vm" {
   
   for_each = module.vpc.map_zone_id
 
-  name        = "dev-vm-${ each.key }"
+  name        = "test-vm-${ each.key }"
   platform_id = "standard-v1"
   zone        = each.key
 
