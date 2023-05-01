@@ -30,7 +30,7 @@ variable "ssh_key" {
 
 variable "name" {
   type    = string
-  default = "develop"
+  default = "test-network"
 }
 
 variable "subnets" {
